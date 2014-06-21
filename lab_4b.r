@@ -59,3 +59,30 @@ plot_ci(lower_vector, upper_vector, mean(population))
 length(lower_vector)
 3/50
 # 94%
+
+"
+Pick a conﬁdence level of your choosing, provided it is not 95%. What is the appropriate critical
+value?
+"
+# 95% = 1.96
+# 90% = 1.65 
+# 99% = 2.58
+
+"
+Calculate 50 conﬁdence intervals at the conﬁdence level you chose in the previous question. You
+do not need to obtain new samples, simply calculate new intervals based on the sample means and
+†This ﬁgure should look familiar (See Section 4.2.2.)
+3
+"
+
+# 90% confidence interval
+lower_vector <- samp_mean - 1.65 * samp_sd/sqrt(n)
+upper_vector <- samp_mean + 1.65 * samp_sd/sqrt(n)
+plot_ci(lower_vector, upper_vector, mean(population))
+100 - (7/50) * 100
+# 99% confidence interval
+lower_vector <- samp_mean - 2.58 * samp_sd/sqrt(n)
+upper_vector <- samp_mean + 2.58 * samp_sd/sqrt(n)
+plot_ci(lower_vector, upper_vector, mean(population))
+100 - (1/50) * 100
+

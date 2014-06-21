@@ -49,3 +49,28 @@ and non-smoking mothers are different.
 inference(y = nc$weight, x = nc$habit, est = "mean", type = "ht", null = 0,
           alternative = "twosided", method = "theoretical")
 
+"
+Calculate a 95% conﬁdence interval for the average length of pregnancies (weeks) and interpret it
+in context. Note that since you’re doing inference on a single population parameter, there is no
+explanatory variable, so you can omit the x variable from the function.
+"
+# We can calculate a 95% conﬁdence interval for a sample mean by adding and subtracting 1.96 standard errors to the point estimate
+
+df = subset(nc, is.na(nc$weeks)==F)
+sample_mean = mean(df$weeks)
+se <- sd(df$weeks)/sqrt(nrow(df))
+lower <- sample_mean - 1.96 * se
+upper <- sample_mean + 1.96 * se
+c(lower, upper)
+# can also do this:
+t.test(df$weeks)$conf.int
+"
+Calculate a new conﬁdence interval for the same parameter at the 90% conﬁdence level. You can
+change the conﬁdence level by adding a new argument to the function: conflevel =0.90.
+"
+t.test(df$weeks, conf.level=0.90)$conf.int
+
+"
+Conduct a hypothesis test evaluating whether the average weight gained by younger mothers is
+different than the average weight gained by mature mothers.
+"

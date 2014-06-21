@@ -1,3 +1,6 @@
+# Code for OpenIntro Statistics textbook lab 4b, accessed at the following URL on 6/21/2014:
+# http://www.openintro.org/download.php?file=os2_lab_04B&referrer=/stat/labs.php
+
 download.file("http://www.openintro.org/stat/data/ames.RData", destfile = "ames.RData")
 load("ames.RData")
 
